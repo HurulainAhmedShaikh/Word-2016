@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word 2016 Quiz for Class 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comic Neue', sans-serif;
+            background: linear-gradient(120deg, #ffb3b3, #ffccff);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-style: bold;
+            font-size: 30px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #6d2281;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .mode-toggle:hover {
+            background-color: #e100ff;
+        }
+        body.dark-mode {
+            background: linear-gradient(120deg, #121212, #1e1e1e);
+            color: #FFFFFF;
+        }
+        body.dark-mode .container {
+            background-color: #121212 !important;
+        }
+        body.dark-mode header {
+            background-color: #6f6b74 !important;
+        }
+        body.dark-mode footer{
+             color:aliceblue;
+        }
+        body.dark-mode h2 {
+            color: #FFFFFF!important;
+        }
+        body.dark-mode .question {
+            background-color: #1e1e1e !important;
+        }
+        body.dark-mode .question p {
+            color:#FFFFFF !important;
+        }
+        body.dark-mode .options label {
+            color:#FFFFFF !important;
+        }
+        body.dark-mode .submit-btn {
+            background-color:rgb(139, 133, 133)!important;
+            color:azure;
+        }
+        header {
+            background-color: #ff66b2;
+            text-align: center;
+            padding: 20px;
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+            border-bottom: 5px solid #fffeff;
+            position: relative;
+        }
+        /* Rest of the original CSS remains the same */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #ff3399;
+            font-size: 32px;
+            text-align: center;
+        }
+        .question {
+            background-color: #ffccff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .question p {
+            font-size: 24px;
+            color: #8400ff;
+        }
+        .options label {
+            display: block;
+            font-size: 22px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            color:#c800ff
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+        .options label:hover {
+            color: #370ffc;
+           
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background-color: #6d2281;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #e100ff;
+        }
+        footer {
+            text-align: center;
+            font-size: 27px;
+            color:#ff3399
+        }
+        #results {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #c905ff;
+            margin-top: 30px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Word 2016
+        <button class="mode-toggle" id="mode-toggle">Switch to Dark Mode🌙</button>
+    </header>
+
+    <div class="container">
+                <h2>Test Your Word 2016 Knowledge!</h2>
+                <form id="quiz-form">
+                    <!-- Question 1 -->
+                    <div class="question">
+                        <p>1. What is the name of the program where you can type letters, stories, and make drawings?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="a"> Word 2016</label>
+                            <label><input type="radio" name="q1" value="b"> Paint</label>
+                            <label><input type="radio" name="q1" value="c"> Calculator</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 2 -->
+                    <div class="question">
+                        <p>2. What do you press to save your work in Word?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="a"> The 'Save' button</label>
+                            <label><input type="radio" name="q2" value="b"> The 'Print' button</label>
+                            <label><input type="radio" name="q2" value="c"> The 'Close' button</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 3 -->
+                    <div class="question">
+                        <p>3. What color is the Word 2016 icon?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="a"> Red and Blue</label>
+                            <label><input type="radio" name="q3" value="b"> Green and Yellow</label>
+                            <label><input type="radio" name="q3" value="c"> Blue and White</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 4 -->
+                    <div class="question">
+                        <p>4. What key do you press to make the text bold in Word?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q4" value="a"> Ctrl + B</label>
+                            <label><input type="radio" name="q4" value="b"> Ctrl + U</label>
+                            <label><input type="radio" name="q4" value="c"> Ctrl + I</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 5 -->
+                    <div class="question">
+                        <p>5. Which button is used to print a document?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q5" value="a"> Print Button</label>
+                            <label><input type="radio" name="q5" value="b"> Save Button</label>
+                            <label><input type="radio" name="q5" value="c"> Exit Button</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 6 -->
+                    <div class="question">
+                        <p>6. What can you add to your Word document to make it look better?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q6" value="a"> Pictures</label>
+                            <label><input type="radio" name="q6" value="b"> Text only</label>
+                            <label><input type="radio" name="q6" value="c"> Nothing</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 7 -->
+                    <div class="question">
+                        <p>7. Which of these is a part of Word 2016?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q7" value="a"> Toolbar</label>
+                            <label><input type="radio" name="q7" value="b"> Start Button</label>
+                            <label><input type="radio" name="q7" value="c"> Desktop</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 8 -->
+                    <div class="question">
+                        <p>8. What does the "Undo" button do?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q8" value="a"> It undoes the last action</label>
+                            <label><input type="radio" name="q8" value="b"> It saves the document</label>
+                            <label><input type="radio" name="q8" value="c"> It changes the font</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 9 -->
+                    <div class="question">
+                        <p>9. Which button makes the text italic?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q9" value="a"> Ctrl + I</label>
+                            <label><input type="radio" name="q9" value="b"> Ctrl + B</label>
+                            <label><input type="radio" name="q9" value="c"> Ctrl + U</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 10 -->
+                    <div class="question">
+                        <p>10. How do you change the size of your text?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q10" value="a"> Use the Font Size option</label>
+                            <label><input type="radio" name="q10" value="b"> Change the color</label>
+                            <label><input type="radio" name="q10" value="c"> Click the 'Save' button</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 11 -->
+                    <div class="question">
+                        <p>11. What does the "Save As" option do?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q11" value="a"> Saves a new version of the document</label>
+                            <label><input type="radio" name="q11" value="b"> Prints the document</label>
+                            <label><input type="radio" name="q11" value="c"> Changes the text style</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 12 -->
+                    <div class="question">
+                        <p>12. How do you open a saved document?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q12" value="a"> Click 'Open'</label>
+                            <label><input type="radio" name="q12" value="b"> Click 'Save'</label>
+                            <label><input type="radio" name="q12" value="c"> Click 'Print'</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 13 -->
+                    <div class="question">
+                        <p>13. What is the shortcut to copy text?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q13" value="a"> Ctrl + C</label>
+                            <label><input type="radio" name="q13" value="b"> Ctrl + V</label>
+                            <label><input type="radio" name="q13" value="c"> Ctrl + X</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 14 -->
+                    <div class="question">
+                        <p>14. What does the "Bold" button do?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q14" value="a"> Makes text thicker</label>
+                            <label><input type="radio" name="q14" value="b"> Changes text color</label>
+                            <label><input type="radio" name="q14" value="c"> Underlines text</label>
+                        </div>
+                    </div>
+        
+                    <!-- Question 15 -->
+                    <div class="question">
+                        <p>15. What can you do with the "Insert" menu?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q15" value="a"> Add pictures, tables, and more</label>
+                            <label><input type="radio" name="q15" value="b"> Change text color</label>
+                            <label><input type="radio" name="q15" value="c"> Undo changes</label>
+                        </div>
+                    </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <div id="results">
+            <p id="score"></p>
+            <button onclick="resetQuiz()" class="submit-btn">Try Again</button>
+        </div>
+    </div>
+
+    <footer>Good luck with your quiz!</footer>
+
+    <script>
+        const quizForm = document.getElementById('quiz-form');
+        const resultsDiv = document.getElementById('results');
+        const scoreParagraph = document.getElementById('score');
+        const modeToggle = document.getElementById('mode-toggle');
+
+        // Original quiz submission logic
+        quizForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const answers = {
+                q1: 'a', q2: 'a', q3: 'c', q4: 'a', q5: 'a',
+                q6: 'a', q7: 'a', q8: 'a', q9: 'a', q10: 'a',
+                q11: 'a', q12: 'a', q13: 'a', q14: 'a', q15: 'a'
+            };
+
+            let score = 0;
+            const formData = new FormData(quizForm);
+
+            formData.forEach((value, key) => {
+                if (value === answers[key]) {
+                    score++;
+                }
+            });
+
+            quizForm.style.display = 'none';
+            resultsDiv.style.display = 'block';
+            scoreParagraph.textContent = `You scored ${score} out of 15!`;
+        });
+
+        function resetQuiz() {
+            quizForm.reset();
+            quizForm.style.display = 'block';
+            resultsDiv.style.display = 'none';
+        }
+
+        // Dark mode toggle functionality
+        modeToggle.addEventListener('click', function() {
+            const body = document.body;
+            
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                modeToggle.textContent = 'Switch to Dark Mode';
+            } else {
+                body.classList.add('dark-mode');
+                modeToggle.textContent = 'Switch to Light Mode';
+            }
+        });
+    </script>
+</body>
+</html>
